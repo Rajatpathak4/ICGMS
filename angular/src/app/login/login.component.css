@@ -1,0 +1,94 @@
+.auth-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(135deg, #f0f4f8, #d9eaf1);
+  background-image: url(https://dev.icgms.sharajman.com/assets/images/background/login-bg.png);
+  background-repeat: no-repeat;
+  background-position-x: right;
+  /* background-size: contain; */
+  background-color: #bce7f0;
+}
+.card {
+  border: none;
+}
+.col-auto {
+  background-color: #fff;
+  border-radius: 40px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 4rem;
+  /* max-width: 100%; */
+}
+div#form {
+  margin-left: 60px;
+}
+.light-logo {
+  text-align: start !important;
+}
+
+h6 {
+  font-weight: bold;
+  font-size: 2rem;
+}
+.login-Btn{
+  background-color: #00728B;
+  border-radius: 30px;
+  color: #fff;
+  text-align: center;
+  font-size: 14px;
+
+}
+
+.form-group-row {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.form-floating {
+  width: 48%;
+}
+
+.email-input {
+  margin-right: 1rem;
+}
+
+.btn-block {
+  width: 45%;
+  font-size: 1.2rem;
+  border-radius: 30px;
+}
+
+.img-fluid {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.form-control {
+  border-color: #65d0d1;
+  width: 280px;
+}
+a {
+  font-size: 13px;
+  float: right;
+  font-weight: 600 !important;
+}
+.trouble {
+  position: relative;
+  float: right;
+  font-size: 13px;
+  font-weight: 600 !important;
+  margin-top: 6px;
+  display: inline-flex;
+}
+.form-check-label {
+  font-size: 13px;
+  font-weight: 600 !important;
+}
+.symbol {
+  font-size: 10px;
+  justify-content: space-between;
+}
+

@@ -1,0 +1,37 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+        <a class="navbar-brand">
+            <img src="https://dev.icgms.sharajman.com/assets/images/logos/logo.png" alt="" class="img-fluid logo">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+                <li class="nav-item dropdown">
+                    <!-- Added id and href="#" to the toggle link for proper functionality -->
+                    <a class="nav-link dropdown-toggle align-items-end" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <img src="https://dev.icgms.sharajman.com/assets/images/users/user4.jpg" alt=" " class="rounded-circle" width="31">
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="userDropdown">
+                        <li><a class="dropdown-item px-1" [routerLink]="['/profile']"><i class="fa-regular fa-user mx-2"></i>My Profile</a></li>
+                        <li><a class="dropdown-item px-1" href="#"><i class="fa fa-key mx-2"></i>Change Password</a></li>
+                        <li><a class="dropdown-item px-1"><i class="bi bi-bookmark-check mx-2"></i>View List</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li>
+                            <!-- Moved the logout button inside the a tag for consistency -->
+                            <a class="dropdown-item px-1" href="#">
+                                <button class="btn" (click)="onlogout()">Logout</button>
+                                <i class="fa-solid fa-power-off mx-2"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <button class="btn btn-danger" (click)="onRegister()" [routerLink]="('/register')">Registration</button>
+        </div>
+        <button class="btn btn-primary mx-2" (click)="onInitiate()">Initiate New Process</button>
+    </div>
+</nav>

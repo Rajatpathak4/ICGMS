@@ -1,0 +1,207 @@
+<!-- <app-registration></app-registration> -->
+
+
+<app-navbar></app-navbar>
+
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <div class="card-body">
+        <h4 class="card-title">Personal Info</h4>
+
+        <!-- First and Last Name Fields -->
+        <div class="mb-3 row">
+            <label for="first_name" class="col-sm-2 col-form-label">First Name<span class="text-danger">*</span></label>
+            <div class="col-sm-4">
+                <input type="text" id="first_name" placeholder="Enter First Name" class="form-control"
+                    formControlName="first_name">
+                <!-- Error message for First Name -->
+                <div *ngIf="loginForm.get('first_name')?.invalid && loginForm.get('first_name')?.touched">
+                    <span>Field is mandatory</span>
+                </div>
+            </div>
+
+            <label for="last_name" class="col-sm-2 col-form-label">Last Name<span class="text-danger">*</span></label>
+            <div class="col-sm-4">
+                <input type="text" id="last_name" placeholder="Enter Last Name" class="form-control"
+                    formControlName="last_name">
+                <!-- Error message for Last Name -->
+                <div *ngIf="loginForm.get('last_name')?.invalid && loginForm.get('last_name')?.touched">
+                    <span>Field is mandatory</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Email and Phone Number Fields -->
+        <div class="mb-3 row">
+            <label for="email" class="col-sm-2 col-form-label">Email ID<span class="text-danger">*</span></label>
+            <div class="col-sm-4">
+                <input type="email" id="email" placeholder="Enter Email" class="form-control" formControlName="email">
+                <!-- Error message for Email -->
+                <div *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched">
+                    <span>Field is mandatory</span>
+                </div>
+            </div>
+
+            <label for="contact_number" class="col-sm-2 col-form-label">Phone Number<span
+                    class="text-danger">*</span></label>
+            <div class="col-sm-4">
+                <input type="text" id="contact_number" maxlength="10" placeholder="Enter Personal Phone Number"
+                    class="form-control" formControlName="contact_number">
+                <!-- Error message for Phone Number -->
+                <div *ngIf="loginForm.get('contact_number')?.invalid && loginForm.get('contact_number')?.touched">
+                    <span>Field is mandatory</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Department and Designation Fields -->
+        <div class="mb-3 row">
+            <label for="department_id" class="col-sm-2 col-form-label">Department<span
+                    class="text-danger">*</span></label>
+            <div class="col-sm-4">
+                <select id="department_id" formControlName="department_id" class="form-control form-select"
+                    placeholder="Select Department">
+                    <option value="" selected>Select User Type</option>
+                    <option value="3">Human Resources</option>
+                    <option value="4">Finance</option>
+                    <option value="5">Marketing</option>
+                    <option value="6">Sales</option>
+                    <option value="7">IT</option>
+                    <option value="8">Customer Service</option>
+                    <option value="9">Legal</option>
+                    <option value="10">Operations</option>
+                    <option value="11">Research and Development</option>
+                    <option value="12">Procurement</option>
+                    <option value="1">Business Intelligence</option>
+                    <option value="2">Administration</option>
+                    <!-- Add more departments as needed -->
+                </select>
+            </div>
+
+            <label for="designation_id" class="col-sm-2 col-form-label">Designation<span
+                    class="text-danger">*</span></label>
+            <div class="col-sm-4">
+                <select id="designation_id" formControlName="designation_id" class="form-control form-select">
+                    <option value="" selected>Select User Type</option>
+                    <option value="2">Developer</option>
+                    <option value="3">Designer</option>
+                    <option value="5">Assistant Manager</option>
+                    <option value="6">Senior Developer</option>
+                    <option value="7">Team Lead</option>
+                    <option value="8">Junior Developer</option>
+                    <option value="9">Intern</option>
+                    <option value="10">HR Executive</option>
+                    <option value="11">Finance Analyst</option>
+                    <option value="12">Marketing Specialist</option>
+                    <option value="13">Sales Executive</option>
+                    <option value="1">Chief Executive Officer</option>
+                    <option value="4">Manager</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Role Type Field -->
+        <div class="mb-3 row">
+            <label for="role_type" class="col-sm-2 col-form-label">User Type<span class="text-danger">*</span></label>
+            <div class="col-sm-4">
+                <select id="role_type" formControlName="role_type" class="form-select">
+                    <option value="" selected>Select User Type</option>
+                    <option value="ADMIN OPS">Admin Ops</option>
+                    <option value="ADMIN CLIENT RELATIONSHIP">Admin Client Relationship</option>
+                    <option value="STAFF">Staff</option>
+                    <option value="FIELD USER">Field User</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Form Actions (Submit/Reset Buttons) -->
+        <div class="d-flex justify-content-end mb-3 form-actions">
+            <button type="submit" class="btn btn-info  px-3">Update</button>
+            <button type="button" class="btn btn-dark mx-3" (click)="onReset()">Cancel</button>
+        </div>
+    </div>
+</form>
+
+
+<!-- Table-Section -->
+
+<div class="col-12">
+    <div class="card">
+        <div class="card-body">
+            <!-- Title -->
+            <h4 class="text-center mt-2">Manage Registration</h4>
+            <hr>
+
+            <!-- Header: List of Users with Search and Add Button -->
+            <div class="d-flex align-items-center justify-content-between mb-3">
+                <h4 class="card-title mb-0">List of Users</h4>
+
+                <div class="d-flex align-items-center search-container">
+                    <input type="text" placeholder="Search" class="form-control me-2" style="width: 200px;">
+                    <i class="fas fa-search search-icon"></i>
+                    <button class="btn btn-primary" routerLink="/register/addUser">Add User</button>
+                </div>
+            </div>
+
+            <!-- User Table -->
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">S.NO.</th>
+                            <th scope="col">First Name</th>
+                            <th scope="col">Last Name</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Department</th>
+                            <th scope="col">Designation</th>
+                            <th scope="col">User Type</th>
+                            <th scope="col">Phone No</th>
+                            <th scope="col">Actions</th>
+                        </tr>
+
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of users, let i=index">
+                            <th>{{item.s_no}}</th>
+                            <td>{{item.first_name}}</td>
+                            <td>{{item.last_name}}</td>
+                            <td>{{item.email}}</td>
+                            <td>{{item.department_name}}</td>
+                            <td>{{item.designation_name}}</td>
+                            <td>{{item.role_type}}</td>
+                            <td>{{item.contact_number}}</td>
+                            <td>
+                                <!-- Edit Button with Tooltip -->
+                                <button type="button" class="btn btn-primary" (click)="editUser(item)" >Edit</button>
+                                    
+                                <!-- Rights Button with Tooltip -->
+                                <a href="javascript:void(0);" class="link me-2" data-bs-toggle="tooltip" data-bs-placement="top" title="Rights">
+                                  Rights
+                                </a>   
+                            </td>                         
+                            
+                        </tr> 
+                </table>
+            </div>
+
+            <!-- Pagination Controls -->
+            <ul class="pagination d-flex justify-content-center">
+                <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    
+
+
+

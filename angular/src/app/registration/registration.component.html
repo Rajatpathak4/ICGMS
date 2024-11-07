@@ -1,0 +1,107 @@
+<app-navbar></app-navbar>
+
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <div class="card-body">
+        <h4 class="card-title">Personal Info</h4>
+
+        <!-- First and Last Name Fields -->
+        <div class="mb-3 row">
+            <label for="first_name" class="col-sm-2 col-form-label">First Name<span class="text-danger">*</span></label>
+            <div class="col-sm-4">
+                <input type="text" id="first_name" placeholder="Enter First Name" class="form-control"
+                    formControlName="first_name">
+                <!-- Error message for First Name -->
+                <div *ngIf="loginForm.get('first_name')?.invalid && loginForm.get('first_name')?.touched">
+                    <span>Field is mandatory</span>
+                </div>
+            </div>
+
+            <label for="last_name" class="col-sm-2 col-form-label">Last Name<span class="text-danger">*</span></label>
+            <div class="col-sm-4">
+                <input type="text" id="last_name" placeholder="Enter Last Name" class="form-control"
+                    formControlName="last_name">
+                <!-- Error message for Last Name -->
+                <div *ngIf="loginForm.get('last_name')?.invalid && loginForm.get('last_name')?.touched">
+                    <span>Field is mandatory</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Email and Phone Number Fields -->
+        <div class="mb-3 row">
+            <label for="email" class="col-sm-2 col-form-label">Email ID<span class="text-danger">*</span></label>
+            <div class="col-sm-4">
+                <input type="email" id="email" placeholder="Enter Email" class="form-control" formControlName="email">
+                <!-- Error message for Email -->
+                <div *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched">
+                    <span>Field is mandatory</span>
+                </div>
+            </div>
+
+            <label for="contact_number" class="col-sm-2 col-form-label">Phone Number<span
+                    class="text-danger">*</span></label>
+            <div class="col-sm-4">
+                <input type="text" id="contact_number" maxlength="10" placeholder="Enter Personal Phone Number"
+                    class="form-control" formControlName="contact_number">
+                <!-- Error message for Phone Number -->
+                <div *ngIf="loginForm.get('contact_number')?.invalid && loginForm.get('contact_number')?.touched">
+                    <span>Field is mandatory</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Department and Designation Fields -->
+        <div class="mb-3 row">
+            <label for="department_id" class="col-sm-2 col-form-label">Department<span
+                    class="text-danger">*</span></label>
+            <div class="col-sm-4">
+                <select id="department_id" formControlName="department_id" class="form-control form-select"
+                    placeholder="Select Department">
+                    <option value="" selected>Select Department</option>
+                    <option value="3">Human Resources</option>
+                    <option value="4">Finance</option>
+                    <option value="5">Marketing</option>
+                    <option value="6">Sales</option>
+                    <option value="7">IT</option>
+                    <!-- Add more departments as needed -->
+                </select>
+            </div>
+
+            <label for="designation_id" class="col-sm-2 col-form-label">Designation<span
+                    class="text-danger">*</span></label>
+            <div class="col-sm-4">
+                <select id="designation_id" formControlName="designation_id" class="form-control form-select">
+                    <option value="" selected>Select Designation</option>
+                    <option value="2">Developer</option>
+                    <option value="3">Designer</option>
+                    <option value="5">Assistant Manager</option>
+                    <option value="6">Team Lead</option>
+                    <!-- Add more designations as needed -->
+                </select>
+            </div>
+        </div>
+
+        <!-- Role Type Field -->
+        <div class="mb-3 row">
+            <label for="role_type" class="col-sm-2 col-form-label">User Type<span class="text-danger">*</span></label>
+            <div class="col-sm-4">
+                <select id="role_type" formControlName="role_type" class="form-select">
+                    <option value="" selected>Select User Type</option>
+                    <option value="ADMIN OPS">Admin Ops</option>
+                    <option value="ADMIN CLIENT RELATIONSHIP">Admin Client Relationship</option>
+                    <option value="STAFF">Staff</option>
+                    <option value="FIELD USER">Field User</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Form Actions (Submit/Reset Buttons) -->
+        <div class="d-flex justify-content-end mb-3 form-actions">
+            <button type="submit" class="btn btn-info  px-3" >Save</button>
+            <button type="button" class="btn btn-dark mx-3" (click)="onReset()">Cancel</button>
+        </div>
+    </div>
+</form>
+
+
+
